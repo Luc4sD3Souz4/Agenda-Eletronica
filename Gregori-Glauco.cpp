@@ -48,7 +48,7 @@ void listaContatos(registro r[], int *tamanho) {
 	printf("\t#                                                               #\n");
 	printf("\t#                       LISTA DE CONTATOS                       #\n");
 	printf("\t#                                                               :\n");
-	printf("\t# ID\tNome\t\tIdade\t\tNúmero de Telefone      .\n");
+	printf("\t# ID\tNome\t\tIdade\t\tNÃºmero de Telefone      .\n");
 	printf("\t#                                                               .\n");
 	
 	int i;
@@ -111,7 +111,6 @@ void pesquisa(registro r[]){
 	printf("%d\t%s\t\t%d\t\t%d\n\n\n", indice, r[indice].nome, r[indice].idade, r[indice].numero);
 	system("pause");
 }
-		
 void editar(registro r[], int *tamanho){
 	system("cls");
 	int indice,idade, numero;
@@ -129,11 +128,10 @@ void editar(registro r[], int *tamanho){
 	}
 	
 	printf("\nInforme o novo nome: ");
-	gets(nome);
-	fgets(nome, sizeof(nome), stdin);
+	scanf("%s", nome);
 	printf("\nInforme a nova idade: ");
 	scanf("%d",&idade);
-	printf("\nInforme o novo número: ");
+	printf("\nInforme o novo nÃºmero: ");
 	scanf("%d",&numero);
 	
 	strcpy(r[indice].nome,nome);
@@ -167,7 +165,7 @@ void processaOpcao(int opcao, registro r[], int *tamanho) {
 			puts("\nEncerrando...\n");
 			break;
 		default:
-			puts("\n\t\t\tOpção inválida!\n");
+			puts("\n\t\t\tOpÃ§Ã£o invÃ¡lida!\n");
 			break;
 	}
 }
@@ -182,7 +180,7 @@ int main() {
 	registro agenda[MAX_AGENDA];
 
 	int tamanho = 0;
-	// lê o arquivo e carrega seu conteúdo para o vetor "agenda", se existir
+	// lÃª o arquivo e carrega seu conteÃºdo para o vetor "agenda", se existir
 	arquivo = fopen(nome_arquivo, "rb");
 	if (arquivo != NULL) {
 		fread(&tamanho, sizeof(int), 1, arquivo);
@@ -200,7 +198,7 @@ int main() {
 		getchar();		
 	   } while (op != 's');
 
-	// grava o arquivo, com o conteúdo do vetor, ao sair
+	// grava o arquivo, com o conteÃºdo do vetor, ao sair
 
 	arquivo = fopen(nome_arquivo, "wb");
 	fwrite(&tamanho, sizeof(int), 1, arquivo);	
